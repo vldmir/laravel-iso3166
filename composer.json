@@ -1,0 +1,40 @@
+{
+    "name": "vldmir/laravel-iso3166",
+    "description": "A Laravel wrapper for the league/iso3166 package.",
+    "keywords": [
+        "country",
+        "iso3166",
+        "laravel-iso3166"
+    ],
+    "homepage": "https://github.com/vldmir/laravel-iso3166",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Volodymyr Romantsov",
+            "email": "vld.romantsov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "league/iso3166": "^3.0",
+        "illuminate/support": "^7.0|^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vldmir\\LaravelIso3166\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vldmir\\LaravelIso3166\\Providers\\CountryServiceProvider"
+            ],
+            "aliases": {
+                "CountryService": "Vldmir\\LaravelIso3166\\Facades\\CountryService"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
