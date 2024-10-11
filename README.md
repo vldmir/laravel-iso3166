@@ -11,7 +11,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 You can install the package via composer:
 
 ```bash
-composer require vldimir/laravel-iso3166
+composer require vldmir/laravel-iso3166
 ```
 
 ## Usage
@@ -40,13 +40,8 @@ If you discover any security related issues, please email vld.romantsov@gmail.co
 
 ## Credits
 
--   [Volodymyr ](https://github.com/vldimir)
--   [All Contributors](../../contributors)
+-   [Volodymyr Romantsov](https://github.com/vldmir)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
