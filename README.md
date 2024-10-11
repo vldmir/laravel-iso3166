@@ -1,47 +1,73 @@
-# Very short description of the package
+# Laravel ISO3166
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vldimir/laravel-iso3166.svg?style=flat-square)](https://packagist.org/packages/vldimir/laravel-iso3166)
-[![Total Downloads](https://img.shields.io/packagist/dt/vldimir/laravel-iso3166.svg?style=flat-square)](https://packagist.org/packages/vldimir/laravel-iso3166)
-![GitHub Actions](https://github.com/vldimir/laravel-iso3166/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vldmir/laravel-iso3166.svg?style=flat-square)](https://packagist.org/packages/vldmir/laravel-iso3166)
+[![Total Downloads](https://img.shields.io/packagist/dt/vldmir/laravel-iso3166.svg?style=flat-square)](https://packagist.org/packages/vldmir/laravel-iso3166)
+[![License](https://img.shields.io/packagist/l/vldmir/laravel-iso3166.svg?style=flat-square)](https://github.com/vldmir/laravel-iso3166/blob/main/LICENSE.md)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Laravel ISO3166 provides a convenient wrapper for the `league/iso3166` library, allowing you to retrieve country information within your Laravel applications.
 
 ## Installation
 
-You can install the package via composer:
+Install via Composer:
 
 ```bash
 composer require vldmir/laravel-iso3166
 ```
 
+If using Laravel <5.5, manually add service provider and facade:
+
+```php
+'providers' => [
+    Vldmir\LaravelIso3166\Providers\CountryServiceProvider::class,
+],
+'aliases' => [
+    'CountryService' => Vldmir\LaravelIso3166\Facades\CountryService::class,
+],
+```
+
 ## Usage
 
 ```php
-// Usage description here
+use CountryService;
+
+// Retrieve country by name
+$country = CountryService::getByName('Canada');
+echo $country->name;    // Canada
+echo $country->alpha2;  // CA
+
+// Retrieve country by alpha-2 code
+$country = CountryService::getByAlpha2('US');
+echo $country->name;    // United States of America
+
+// Retrieve country by numeric code
+$country = CountryService::getByNumeric('124');
+echo $country->name;    // Canada
 ```
 
-### Testing
+## Testing
+
+Run tests using PHPUnit:
 
 ```bash
-composer test
+vendor/bin/phpunit
 ```
 
-### Changelog
+## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for recent changes.
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Contributions are welcome! Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
-If you discover any security related issues, please email vld.romantsov@gmail.com instead of using the issue tracker.
+If you discover any security issues, please email [vld.romantsov@gmail.com](mailto:vld.romantsov@gmail.com).
 
 ## Credits
 
--   [Volodymyr Romantsov](https://github.com/vldmir)
+- [Volodymyr Romantsov](https://github.com/vldmir)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](LICENSE.md) for details.
